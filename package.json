@@ -1,0 +1,19 @@
+{
+  "name": "e-commerce-test",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000M\u0000E\u0000R\u0000N\u0000-\u0000E\u0000C\u0000O\u0000M\u0000M\u0000E\u0000R\u0000C\u0000E\u0000-\u0000P\u0000R\u0000O\u0000J\u0000E\u0000C\u0000T\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev":"nodemon api/index.js",
+    "start":"node api/index.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3"
+  }
+}
