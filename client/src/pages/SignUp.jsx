@@ -38,7 +38,7 @@ const SignUp = () => {
 
     return (
         <div className="flex flex-col text-center px-[10%] py-[5%]">
-            <h2 className="text-3xl mb-5">Signup</h2>
+            <h2 className="text-3xl mb-5">Sign Up</h2>
             <form onSubmit={handleSignup}>
                 <label>
                     <input
