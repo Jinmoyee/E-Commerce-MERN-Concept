@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -74,6 +75,8 @@ const SignUp = () => {
                     type="submit" className="bg-slate-600 p-2 text-xl text-white rounded-md w-[60%] m-2">
                     {loading ? 'loading...' : 'Sign Up'}
                 </button>
+                <br />
+                <OAuth />
                 <br />
                 <p className="text-lg">Have an account?<span className="text-blue-800 ml-1 cursor-pointer" onClick={() => navigate('/sign-in')}>Sign In</span></p>
                 <br />

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { signInSuccess, signInStart, signInFailure } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
+
 
 const SignIn = () => {
     const navigate = useNavigate()
@@ -64,6 +66,8 @@ const SignIn = () => {
                     type="submit" className="bg-slate-600 p-2 text-xl text-white rounded-md w-[60%] m-2">
                     {loading ? 'loading...' : 'Sign In'}
                 </button>
+                <br />
+                <OAuth />
                 <br />
                 <p className="text-lg">Dont have an account?<span className="text-blue-800 ml-1 cursor-pointer" onClick={() => navigate('/sign-up')}>Sign Up</span></p>
                 <br />
