@@ -1,6 +1,8 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 const Header = () => {
+    const { currentUser } = useSelector(state => state.user)
     return (
         <header className='flex justify-between p-2 bg-slate-400'>
             <div className="logo">
@@ -16,9 +18,15 @@ const Header = () => {
             {/* Navigation Links */}
             <nav>
                 <ul className='flex gap-8 text-lg'>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/signin">Sign In</a></li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/about'>About</Link></li>
+                    {currentUser ? (
+                        <Link to="/profile">
+                            <img src={currentUser.avatar} className='rounded-full w-8 object-cover' alt="user_profile" />
+                        </Link>
+                    ) : (
+                        <li><Link to='/sign-in'>Sign In</Link></li>
+                    )}
                 </ul>
             </nav>
         </header>
