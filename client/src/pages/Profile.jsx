@@ -4,6 +4,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { app } from '../firebase';
 import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserStart, deleteUserFailure, deleteUserSuccess, signOutUserFailure, signOutUserStart, signOutUserSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 export default function Profile() {
     const dispatch = useDispatch()
@@ -153,7 +154,7 @@ export default function Profile() {
                         defaultValue={currentUser.password} onChange={handleChange} />
                     <button disabled={loading}
                         className='border rounded-md p-2 text-white text-lg bg-slate-700 w-[100%] disabled:opacity-80'>{loading ? "LOADING..." : "UPDATE"}</button>
-                    {/* <button className='w-[100%] border rounded-md p-2 bg-green-700 text-white text-lg'>CREATE LISTING</button> */}
+                    <Link to={'/create-listing'} className='w-[100%] border rounded-md p-2 bg-green-700 text-white text-lg text-center'>CREATE LISTING</Link>
 
                 </form>
                 <div className='flex justify-between'>
