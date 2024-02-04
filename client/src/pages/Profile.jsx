@@ -6,6 +6,7 @@ import { updateUserStart, updateUserSuccess, updateUserFailure, deleteUserStart,
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 
+
 export default function Profile() {
     const dispatch = useDispatch()
     const { currentUser, loading, error } = useSelector((state) => state.user)
@@ -14,7 +15,10 @@ export default function Profile() {
     const [imageUploadError, setImageUploadError] = useState(false)
     const [formData, setFormData] = useState({})
     const [updateSuccess, setUpdateSuccess] = useState(false)
-    console.log(formData)
+    const [showListingError, setShowListingError] = useState(false)
+    const [userListing, setUserListing] = useState([])
+
+    console.log(userListing)
 
     useEffect(() => {
         if (file) {
@@ -113,6 +117,30 @@ export default function Profile() {
         }
     }
 
+    const handleShowListings = async () => {
+        try {
+            setShowListingError(false)
+            const res = await fetch(`/api/user/listings/${currentUser._id}`)
+            const data = await res.json()
+            if (data.success === false) {
+                setShowListingError(true)
+                console.log("Error from data")
+            }
+            setUserListing(data)
+        } catch (error) {
+            setShowListingError(true)
+            console.log("Error from catch")
+        }
+    }
+
+    const handleEditListing = () => {
+
+    }
+
+    const handleDeleteListing = () => {
+
+    }
+
     return (
         <div className='flex flex-col items-center'>
             <div className='m-10 w-[40%]'>
@@ -164,7 +192,33 @@ export default function Profile() {
 
                 <p className='text-red-600 pt-3 text-center'>{error ? error : ""}</p>
                 <p className='text-green-600 pt-3 text-center'>{updateSuccess ? "User updated successfully!" : ""}</p>
+                <button onClick={handleShowListings} className='text-green-700 text-lg w-[100%]'>Show Listings</button>
+                {showListingError && <p className='text-red-600 text-center'>Error in fetching listings</p>}
+                {userListing && userListing.length > 0 && (
+                    <div className='flex flex-col gap-4'>
+                        <h1 className='text-3xl font-semibold text-center mt-7'>Your Listings</h1>
+                        {userListing.map((listing) =>
+                            <div key={listing._id} className='flex border p-3 rounded-md items-center justify-between gap-4'>
+                                <Link to={`/listing/${listing._id}`}>
+                                    <img
+                                        src={listing.imageUrls[0]}
+                                        alt="listing image"
+                                        className='h-20 w-20 object-contain'
+                                    />
+                                </Link>
+                                <Link to={`/listing/${listing._id}`} className='text-slate-700 flex-1 font-semibold hover:underline'>
+                                    <p>{listing.name}</p>
+                                </Link>
+
+                                <div className='flex flex-col gap-2 border p-2 rounded-md'>
+                                    <button onClick={handleEditListing} className='text-green-700 font-semibold opacity-60 hover:opacity-100'>EDIT</button>
+                                    <button onClick={handleDeleteListing} className='text-red-700 font-semibold opacity-60 hover:opacity-100'>DELETE</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
-        </div>
+        </div >
     );
 }
