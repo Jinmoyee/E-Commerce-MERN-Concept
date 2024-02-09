@@ -1,8 +1,30 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
+import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 const Header = () => {
+    const navigate = useNavigate()
     const { currentUser } = useSelector(state => state.user)
+    const [searchTerm, setSearchTerm] = useState('')
+
+    const handleSumbit = (e) => {
+        e.preventDefault()
+        const url = new URLSearchParams(window.location.search)
+        url.set('searchTerm', searchTerm)
+        const searchQuery = url.toString()
+        navigate(`/search?${searchQuery}`)
+    }
+
+    useEffect(() => {
+        const url = new URLSearchParams(location.search)
+        const searchTermFormUrl = url.get('searchTerm')
+        if (searchTermFormUrl) {
+            setSearchTerm(searchTermFormUrl)
+        }
+    }, [location.search])
+
     return (
         <header className='flex justify-between p-2 bg-slate-400'>
             <div className="logo">
@@ -10,10 +32,16 @@ const Header = () => {
             </div>
 
             {/* Search Bar */}
-            <div className="search-bar">
-                <input type="text" placeholder="Search" className='rounded-md p-1 outline-none w-[300px]' />
-                <button className='ml-2'>Search</button>
-            </div>
+            <form onSubmit={handleSumbit} className="search-bar relative">
+                <input
+                    type="text"
+                    placeholder="Search"
+                    className='rounded-md p-2 outline-none w-[300px]'
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button className='absolute top-3 right-2'><FaSearch /></button>
+            </form>
 
             {/* Navigation Links */}
             <nav>
