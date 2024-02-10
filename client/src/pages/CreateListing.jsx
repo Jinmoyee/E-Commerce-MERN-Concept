@@ -74,7 +74,7 @@ export default function CreateListing() {
     }
 
     const handleChange = (e) => {
-        if (e.target.id === 'sell' || e.target.id === 'rent') {
+        if (e.target.id === 'sale' || e.target.id === 'rent') {
             setFormData((prev) => ({ ...prev, type: e.target.id }))
         }
         if (e.target.id === 'parking' || e.target.id === 'furnished' || e.target.id === 'offer') {
@@ -138,8 +138,8 @@ export default function CreateListing() {
                     <input type="text" placeholder='Address' className='border-2 rounded-md text-lg p-1' id='address' required onChange={handleChange} value={formData.address} />
                     <div className='flex gap-6 flex-wrap'>
                         <div className='check-box'>
-                            <input type="checkbox" className='w-5' id='sell' onChange={handleChange} checked={formData.type === 'sell'} />
-                            <span>Sell</span>
+                            <input type="checkbox" className='w-5' id='sale' onChange={handleChange} checked={formData.type === 'sale'} />
+                            <span>Sale</span>
                         </div>
                         <div className='check-box'>
                             <input type="checkbox" className='w-5' id='rent' onChange={handleChange} checked={formData.type === 'rent'} />
