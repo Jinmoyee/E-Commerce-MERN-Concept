@@ -26,7 +26,7 @@ const Header = () => {
     }, [location.search])
 
     return (
-        <header className='flex justify-between p-2'>
+        <header className='flex justify-between item-center max-w-6xl mx-auto p-2'>
             <div className="logo">
                 <Link to="/">
                     <h1 className='p-1 text-xl text-green-900 font-bold md:text-2xl'>JT<span className='font-normal'>Estate</span></h1>
@@ -52,7 +52,7 @@ const Header = () => {
                     <li><Link to='/about' className='text-green-900 hover:underline font-semibold hidden md:inline'>About</Link></li>
                     {currentUser ? (
                         <Link to="/profile">
-                            <img src={currentUser.avatar} className='rounded-full w-8 object-cover' alt="user_profile" />
+                            <img src={currentUser.avatar} className='rounded-full min-w-8 object-cover w-8' alt="user_profile" />
                         </Link>
                     ) : (
                         <li><Link to='/sign-in'>Sign In</Link></li>
