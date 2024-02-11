@@ -72,7 +72,7 @@ export default function Listing() {
                     </Swiper>
                     <div className='fixed top-[15%] right-[5%] z-10 p-4 bg-white rounded-full cursor-pointer'>
                         <FaShare
-                            className='text-slate-500'
+                            className='text-green-900'
                             onClick={() => {
                                 navigator.clipboard.writeText(window.location.href);
                                 setCopied(true)
@@ -110,7 +110,7 @@ export default function Listing() {
                             )}
                         </div>
                         <p className='text-xl font-semibold'>Description - <span className='text-slate-600 text-sm'>{listing.description}</span></p>
-                        <div className='flex flex-row text-lg text-green-900 gap-4'>
+                        <div className='flex flex-row flex-wrap text-lg text-green-900 gap-4'>
                             <div className='flex gap-1'>
                                 <FaBed />
                                 <p className='text-sm font-semibold'>{listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : '1 Bed'}</p>

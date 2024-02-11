@@ -178,17 +178,17 @@ export default function Profile() {
                         }</p>
                     <input
                         type="text"
-                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900'
+                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold outline-none border-green-900 text-green-900'
                         placeholder='Username' id='username' defaultValue={currentUser.username} onChange={handleChange} />
                     <input
                         type="text"
-                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900'
+                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold outline-none border-green-900 text-green-900'
                         placeholder='Email'
                         id='email'
                         defaultValue={currentUser.email} onChange={handleChange} />
                     <input
                         type="password"
-                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900'
+                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold outline-none border-green-900 text-green-900'
                         placeholder='Password'
                         id='password'
                         defaultValue={currentUser.password} onChange={handleChange} />
