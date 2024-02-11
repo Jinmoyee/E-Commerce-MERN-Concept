@@ -28,7 +28,9 @@ const Header = () => {
     return (
         <header className='flex justify-between p-2 bg-slate-400'>
             <div className="logo">
-                <h1 className='p-1 text-xl'>RealESTATE</h1>
+                <Link to="/">
+                    <h1 className='p-1 text-xl'>JT Estate</h1>
+                </Link>
             </div>
 
             {/* Search Bar */}
