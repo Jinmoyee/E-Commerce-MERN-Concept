@@ -54,7 +54,7 @@ export default function Home() {
     return (
         <div>
             <div className="flex gap-1 flex-col xl:flex-row mb-5">
-                <div className="flex flex-col gap-y-5 mx-[1rem] mt-[1rem] sm:mt-[3rem] md:mt-[8rem] my-[1rem] sm:mx-[2rem] md:mx-[8rem] xl:mt-[8rem]">
+                <div className="flex flex-col gap-y-5 mt-[3rem] md:mt-[8rem] my-[1rem] mx-[2rem] md:mx-[8rem] xl:mt-[8rem]">
                     <div>
                         <h1 className='text-2xl font-bold text-green-900 sm:text-4xl  md:text-5xl 2xl:text-6xl'>Find your next <span className="text-green-600 hover:underline">perfect</span></h1>
                         <h1 className='text-2xl  sm:text-4xl md:text-5xl 2xl:text-6xl font-bold text-green-900'> place with ease</h1>
