@@ -39,8 +39,8 @@ const SignIn = () => {
     }
 
     return (
-        <div className="flex flex-col text-center py-[5%]">
-            <h2 className="text-5xl font-semibold mb-5 text-green-900">Sign In</h2>
+        <div className="flex flex-col text-center py-[5%] mt-[2rem] sm:mt-[0rem]">
+            <h2 className="text-5xl font-semibold mb-[3rem] lg:mb-5 text-green-900">Sign In</h2>
             <form onSubmit={handleSignup}>
                 <label>
                     <input
@@ -63,13 +63,13 @@ const SignIn = () => {
                 </label>
                 <br />
                 <button
-                    type="submit" className="bg-green-700 p-3 text-xl text-white rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] m-2">
+                    type="submit" className="bg-green-700 hover:bg-green-600 p-3 text-xl text-white rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] m-2">
                     {loading ? 'loading...' : 'Sign In'}
                 </button>
                 <br />
                 <OAuth />
                 <br />
-                <p className="text-lg">Dont have an account?<span className="text-green-900 ml-1 cursor-pointer font-semibold" onClick={() => navigate('/sign-up')}>Sign Up</span></p>
+                <p className="text-lg">Dont have an account?<span className="text-green-900 ml-1 cursor-pointer font-semibold hover:underline" onClick={() => navigate('/sign-up')}>Sign Up</span></p>
                 <br />
                 {error && <p className="text-red-500 text-xl">{error}</p>}
             </form>
