@@ -26,10 +26,10 @@ const Header = () => {
     }, [location.search])
 
     return (
-        <header className='flex justify-between p-2 bg-slate-400'>
+        <header className='flex justify-between p-2'>
             <div className="logo">
                 <Link to="/">
-                    <h1 className='p-1 text-xl'>JT Estate</h1>
+                    <h1 className='p-1 text-xl'>JT<span className='font-semibold'>Estate</span></h1>
                 </Link>
             </div>
 
@@ -38,7 +38,7 @@ const Header = () => {
                 <input
                     type="text"
                     placeholder="Search"
-                    className='rounded-md p-2 outline-none w-[300px]'
+                    className='border rounded-md p-2 outline-none w-[300px]'
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
