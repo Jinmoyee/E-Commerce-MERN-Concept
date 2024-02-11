@@ -44,7 +44,7 @@ const SignIn = () => {
             <form onSubmit={handleSignup}>
                 <label>
                     <input
-                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none"
+                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900"
                         type="email"
                         placeholder="Email"
                         id="email"
@@ -54,7 +54,7 @@ const SignIn = () => {
                 <br />
                 <label>
                     <input
-                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none"
+                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900"
                         type="password"
                         id="password"
                         placeholder="Password"

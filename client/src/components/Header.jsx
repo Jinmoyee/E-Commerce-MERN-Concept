@@ -38,7 +38,7 @@ const Header = () => {
                 <input
                     type="text"
                     placeholder="Search"
-                    className='border rounded-full py-2 px-4 outline-none w-[150px] md:w-[300px] placeholder-green-800 font-semibold text-sm md:text-base bg-green-100'
+                    className='border rounded-full py-2 px-4 outline-none w-[150px] md:w-[300px] placeholder-green-800 font-semibold text-sm md:text-base bg-green-100 border-green-200'
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />

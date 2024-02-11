@@ -155,7 +155,7 @@ export default function Profile() {
 
     return (
         <div className='flex flex-col items-center'>
-            <div className='m-10 w-[40%]'>
+            <div className='m-10 w-full'>
                 <h1 className='text-3xl font-semibold text-center p-3'>Profile</h1>
                 <form className='flex flex-col items-center gap-3' onSubmit={handleSubmit}>
                     <input type="file" id='file' className='hidden' name='file' accept='image/*' onChange={(e) => setFile(e.target.files[0])} />
@@ -178,60 +178,65 @@ export default function Profile() {
                         }</p>
                     <input
                         type="text"
-                        className='w-[100%] border rounded-md p-2'
+                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900'
                         placeholder='Username' id='username' defaultValue={currentUser.username} onChange={handleChange} />
                     <input
                         type="text"
-                        className='w-[100%] border rounded-md p-2'
+                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900'
                         placeholder='Email'
                         id='email'
                         defaultValue={currentUser.email} onChange={handleChange} />
                     <input
                         type="password"
-                        className='w-[100%] border rounded-md p-2'
+                        className='border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900'
                         placeholder='Password'
                         id='password'
                         defaultValue={currentUser.password} onChange={handleChange} />
                     <button disabled={loading}
-                        className='border rounded-md p-2 text-white text-lg bg-slate-700 w-[100%] disabled:opacity-80'>{loading ? "LOADING..." : "UPDATE"}</button>
-                    <Link to={'/create-listing'} className='w-[100%] border rounded-md p-2 bg-green-700 text-white text-lg text-center'>CREATE LISTING</Link>
+                        className='border-2 px-5 py-3 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg font-semibold bg-slate-700 outline-none text-center hover:bg-slate-600 text-white disabled:opacity-80'>{loading ? "LOADING..." : "UPDATE"}</button>
+                    <Link to={'/create-listing'} className='border-2 px-5 py-3 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg font-semibold bg-green-700 outline-none text-center hover:bg-green-600 text-white'>CREATE LISTING</Link>
 
                 </form>
-                <div className='flex justify-between'>
-                    <span className='text-red-600' onClick={handleDeleteUser}>Delete account</span>
-                    <span className='text-red-600' onClick={handleSignOutUser}>Sign out</span>
+                <div className='flex justify-center w-full'>
+                    <div className='flex justify-between w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] p-3'>
+                        <span className='text-red-600 cursor-pointer' onClick={handleDeleteUser}>Delete account</span>
+                        <span className='text-red-600 cursor-pointer' onClick={handleSignOutUser}>Sign out</span>
+                    </div>
                 </div>
-
                 <p className='text-red-600 pt-3 text-center'>{error ? error : ""}</p>
                 <p className='text-green-600 pt-3 text-center'>{updateSuccess ? "User updated successfully!" : ""}</p>
-                <button onClick={handleShowListings} className='text-green-700 text-lg w-[100%]'>Show Listings</button>
-                {showListingError && <p className='text-red-600 text-center'>Error in fetching listings</p>}
-                {userListing && userListing.length > 0 && (
-                    <div className='flex flex-col gap-4'>
-                        <h1 className='text-3xl font-semibold text-center mt-7'>Your Listings</h1>
-                        {userListing.map((listing) =>
-                            <div key={listing._id} className='flex border p-3 rounded-md items-center justify-between gap-4'>
-                                <Link to={`/listing/${listing._id}`}>
-                                    <img
-                                        src={listing.imageUrls[0]}
-                                        alt="listing image"
-                                        className='h-20 w-20 object-contain'
-                                    />
-                                </Link>
-                                <Link to={`/listing/${listing._id}`} className='text-slate-700 flex-1 font-semibold hover:underline'>
-                                    <p>{listing.name}</p>
-                                </Link>
+                <button onClick={handleShowListings} className='text-green-700 text-lg w-[100%] hover:underline'>Show Listings</button>
+                <div className='flex justify-center w-full'>
+                    <div className='flex justify-between p-3'>
+                        {showListingError && <p className='text-red-600 text-center'>Error in fetching listings</p>}
+                        {userListing && userListing.length > 0 && (
+                            <div className='flex flex-col gap-4'>
+                                <h1 className='text-3xl font-semibold text-center mt-7 text-green-900'>Your Listings</h1>
+                                {userListing.map((listing) =>
+                                    <div key={listing._id} className='flex border-2 border-green-700 p-3 rounded-xl items-center justify-between gap-4'>
+                                        <Link to={`/listing/${listing._id}`}>
+                                            <img
+                                                src={listing.imageUrls[0]}
+                                                alt="listing image"
+                                                className='h-20 w-20 object-contain'
+                                            />
+                                        </Link>
+                                        <Link to={`/listing/${listing._id}`} className='text-green-900 flex-1 font-semibold cursor-pointer line-clamp-2 hover:underline'>
+                                            <p>{listing.name}</p>
+                                        </Link>
 
-                                <div className='flex flex-col gap-2 border p-2 rounded-md'>
-                                    <Link to={`/update-listing/${listing._id}`}>
-                                        <button onClick={handleEditListing} className='text-green-700 font-semibold opacity-60 hover:opacity-100'>EDIT</button>
-                                    </Link>
-                                    <button onClick={() => handleDeleteListing(listing._id)} className='text-red-700 font-semibold opacity-60 hover:opacity-100'>DELETE</button>
-                                </div>
+                                        <div className='flex flex-col gap-2 border-2 border-green-700 p-2 rounded-md items-center'>
+                                            <Link to={`/update-listing/${listing._id}`}>
+                                                <button onClick={handleEditListing} className='text-green-700 font-semibold opacity-60 hover:opacity-100'>EDIT</button>
+                                            </Link>
+                                            <button onClick={() => handleDeleteListing(listing._id)} className='text-red-700 font-semibold opacity-60 hover:opacity-100'>DELETE</button>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
-                )}
+                </div>
             </div>
         </div >
     );

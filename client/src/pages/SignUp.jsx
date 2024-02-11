@@ -39,11 +39,11 @@ const SignUp = () => {
 
     return (
         <div className="flex flex-col text-center px-[10%] py-[5%]">
-            <h2 className="text-3xl mb-5">Sign Up</h2>
+            <h2 className="text-5xl font-semibold mb-[3rem] lg:mb-5 text-green-900">Sign Up</h2>
             <form onSubmit={handleSignup}>
                 <label>
                     <input
-                        className="border-2 p-3 m-2 rounded-md w-[60%] text-lg"
+                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900"
                         type="text"
                         placeholder="Username"
                         id="username"
@@ -53,7 +53,7 @@ const SignUp = () => {
                 <br />
                 <label>
                     <input
-                        className="border-2 p-3 m-2 rounded-md w-[60%] text-lg"
+                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900"
                         type="email"
                         placeholder="Email"
                         id="email"
@@ -63,7 +63,7 @@ const SignUp = () => {
                 <br />
                 <label>
                     <input
-                        className="border-2 p-3 m-2 rounded-md w-[60%] text-lg"
+                        className="border-2 px-5 py-3 m-2 rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg placeholder-green-800 font-semibold bg-green-100 outline-none border-green-200 text-green-900"
                         type="password"
                         id="password"
                         placeholder="Password"
@@ -72,13 +72,13 @@ const SignUp = () => {
                 </label>
                 <br />
                 <button
-                    type="submit" className="bg-slate-600 p-2 text-xl text-white rounded-md w-[60%] m-2">
+                    type="submit" className="bg-green-700 hover:bg-green-600 p-3 text-xl text-white rounded-full w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] m-2">
                     {loading ? 'loading...' : 'Sign Up'}
                 </button>
                 <br />
                 <OAuth />
                 <br />
-                <p className="text-lg">Have an account?<span className="text-blue-800 ml-1 cursor-pointer" onClick={() => navigate('/sign-in')}>Sign In</span></p>
+                <p className="text-lg">Have an account?<span className="text-green-900 ml-1 cursor-pointer font-semibold hover:underline" onClick={() => navigate('/sign-in')}>Sign In</span></p>
                 <br />
                 {error && <p className="text-red-500 text-xl">{error}</p>}
             </form>
