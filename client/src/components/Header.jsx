@@ -29,7 +29,7 @@ const Header = () => {
         <header className='flex justify-between p-2'>
             <div className="logo">
                 <Link to="/">
-                    <h1 className='p-1 text-xl'>JT<span className='font-semibold'>Estate</span></h1>
+                    <h1 className='p-1 text-xl text-green-900 font-bold md:text-2xl'>JT<span className='font-normal'>Estate</span></h1>
                 </Link>
             </div>
 
@@ -38,18 +38,18 @@ const Header = () => {
                 <input
                     type="text"
                     placeholder="Search"
-                    className='border rounded-md p-2 outline-none w-[300px]'
+                    className='border rounded-full py-2 px-4 outline-none w-[150px] md:w-[300px] placeholder-green-800 font-semibold text-sm md:text-base bg-green-100'
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button className='absolute top-3 right-2'><FaSearch /></button>
+                <button className='absolute top-3 right-2'><FaSearch className='text-green-800 text-sm md:text-base' /></button>
             </form>
 
             {/* Navigation Links */}
             <nav>
-                <ul className='flex gap-8 text-lg'>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/about'>About</Link></li>
+                <ul className='flex gap-8 text-base md:text-lg items-center p-1'>
+                    <li><Link to='/' className='text-green-900 hover:underline font-semibold hidden md:inline'>Home</Link></li>
+                    <li><Link to='/about' className='text-green-900 hover:underline font-semibold hidden md:inline'>About</Link></li>
                     {currentUser ? (
                         <Link to="/profile">
                             <img src={currentUser.avatar} className='rounded-full w-8 object-cover' alt="user_profile" />
