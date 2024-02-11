@@ -156,11 +156,11 @@ export default function Profile() {
     return (
         <div className='flex flex-col items-center'>
             <div className='m-10 w-full'>
-                <h1 className='text-3xl font-semibold text-center p-3'>Profile</h1>
+                <h1 className='text-4xl font-semibold text-center p-3 text-black'>Profile</h1>
                 <form className='flex flex-col items-center gap-3' onSubmit={handleSubmit}>
                     <input type="file" id='file' className='hidden' name='file' accept='image/*' onChange={(e) => setFile(e.target.files[0])} />
                     <label htmlFor="file" className='cursor-pointer flex'>
-                        <img src={formData.avatar || currentUser.avatar} alt="user_image" className='w-28 h-28 rounded-full m-2 border-[5px] border-black object-cover' />
+                        <img src={formData.avatar || currentUser.avatar} alt="user_image" className='w-[8rem] h-[8rem] rounded-full m-2 border-[5px] border-black object-cover' />
                     </label>
                     <p>
                         {
