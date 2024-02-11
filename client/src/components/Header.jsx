@@ -47,7 +47,7 @@ const Header = () => {
 
             {/* Navigation Links */}
             <nav>
-                <ul className='flex gap-8 text-base md:text-lg items-center p-1'>
+                <ul className='flex gap-1 sm:gap-8 text-base md:text-lg items-center pt-1'>
                     <li><Link to='/' className='text-green-900 hover:underline font-semibold hidden md:inline'>Home</Link></li>
                     <li><Link to='/about' className='text-green-900 hover:underline font-semibold hidden md:inline'>About</Link></li>
                     {currentUser ? (
@@ -55,7 +55,7 @@ const Header = () => {
                             <img src={currentUser.avatar} className='rounded-full min-w-8 object-cover w-8' alt="user_profile" />
                         </Link>
                     ) : (
-                        <li><Link to='/sign-in'>Sign In</Link></li>
+                        <li><Link to='/sign-in'><span className='text-green-900 hover:underline font-semibold'>Sign In</span></Link></li>
                     )}
                 </ul>
             </nav>
