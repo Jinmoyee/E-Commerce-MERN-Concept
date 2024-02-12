@@ -11,6 +11,13 @@ const SignIn = () => {
     const [formData, setFormData] = useState("");
     const { loading, error } = useSelector((state) => state.user)
 
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value
+        })
+    }
+
     const handleSignup = async (event) => {
         event.preventDefault();
         dispatch(signInStart())
@@ -30,13 +37,6 @@ const SignIn = () => {
         }
         console.log(data);
     };
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value
-        })
-    }
 
     return (
         <div className="flex flex-col text-center py-[5%] mt-[2rem] sm:mt-[0rem]">
