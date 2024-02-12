@@ -204,7 +204,7 @@ export default function Profile() {
                     </div>
                 </div>
                 <p className='text-red-600 pt-3 text-center'>{error ? error : ""}</p>
-                <p className='text-green-600 pt-3 text-center'>{updateSuccess ? "User updated successfully!" : ""}</p>
+                <p className='text-green-600 p-3 text-center'>{updateSuccess ? "User updated successfully!" : ""}</p>
                 <button onClick={handleShowListings} className='text-green-700 text-lg w-[100%] hover:underline'>Show Listings</button>
                 <div className='flex justify-center w-full'>
                     <div className='flex justify-between p-3'>

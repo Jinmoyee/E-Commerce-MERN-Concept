@@ -130,94 +130,94 @@ export default function Search() {
     return (
         <div>
             <div className='flex flex-col md:flex-row'>
-                <form className='border-b-2 md:border-r-2 md:min-h-screen' onSubmit={handleSubmit}>
+                <form className='border-b-2 md:border-r-2 md:min-h-screen text-green-900 text-lg' onSubmit={handleSubmit}>
                     <div className='flex flex-col items-center'>
                         <div className='flex flex-col gap-5 m-6'>
+                            <p className='mb-1 text-2xl text-center md:text-left font-semibold'>Search Term:</p>
                             <div className='flex items-center gap-2'>
-                                <p className='mb-1 text-lg'>Search Term:</p>
                                 <input
                                     id='searchTerm'
                                     type="text"
                                     placeholder='Search...'
-                                    className='p-2 text-lg border rounded-md'
+                                    className='border-2 px-4 py-2 rounded-lg text-lg placeholder-green-800 outline-none border-green-900 text-green-900 w-full'
                                     value={sideBarData.searchTerm}
                                     onChange={handleChange}
                                 />
                             </div>
 
-                            <div className='flex gap-2 items-center mt-4 flex-wrap'>
-                                <span className='mb-1.5 text-lg'>Type:</span>
+                            <div className='flex gap-4 items-center mt-4 flex-wrap'>
                                 <div>
+                                    <span className='text-lg mr-2'>Type:</span>
                                     <input
                                         id='all'
                                         type="checkbox"
-                                        className='w-4 h-4'
+                                        className='w-5 h-5 accent-green-900'
                                         onChange={handleChange}
                                         checked={sideBarData.type === "all"}
                                     />
-                                    <label className='ml-2'>Rent & Sale</label>
+                                    <label className='ml-1'>Rent & Sale</label>
                                 </div>
                                 <div>
                                     <input
                                         id='rent'
                                         type="checkbox"
-                                        className='w-4 h-4'
+                                        className='w-5 h-5 accent-green-900'
                                         onChange={handleChange}
                                         checked={sideBarData.type === "rent"}
                                     />
-                                    <label className='ml-2'>Rent</label>
+                                    <label className='ml-1'>Rent</label>
                                 </div>
                                 <div>
                                     <input
                                         id='sale'
                                         type="checkbox"
-                                        className='w-4 h-4'
+                                        className='w-5 h-5 accent-green-900'
                                         onChange={handleChange}
                                         checked={sideBarData.type === "sale"}
                                     />
-                                    <label className='ml-2'>Sale</label>
+                                    <label className='ml-1'>Sale</label>
                                 </div>
                                 <div>
                                     <input
                                         id='offer'
                                         type="checkbox"
-                                        className='w-4 h-4'
+                                        className='w-5 h-5 accent-green-900'
                                         onChange={handleChange}
                                         checked={sideBarData.offer}
                                     />
-                                    <label className='ml-2'>Offer</label>
+                                    <label className='ml-1'>Offer</label>
                                 </div>
                             </div>
 
-                            <div className='flex items-center gap-2 flex-wrap'>
-                                <span className='mb-1.5 text-lg'>Amenities:</span>
+                            <div className='flex items-center gap-3 flex-wrap'>
+                                <span className='text-lg'>Amenities:</span>
                                 <div>
                                     <input
                                         id='parking'
                                         type="checkbox"
-                                        className='w-4 h-4'
+                                        className='w-5 h-5 accent-green-900'
                                         onChange={handleChange}
                                         checked={sideBarData.parking}
                                     />
-                                    <label className='ml-2'>Parking</label>
+                                    <label className='ml-1'>Parking</label>
                                 </div>
                                 <div>
                                     <input
                                         id='furnished'
                                         type="checkbox"
-                                        className='w-4 h-4'
+                                        className='w-5 h-5 accent-green-900'
                                         onChange={handleChange}
                                         checked={sideBarData.furnished}
                                     />
-                                    <label className='ml-2'>Furnished</label>
+                                    <label className='ml-1'>Furnished</label>
                                 </div>
                             </div>
 
                             <div className='flex item-center gap-2'>
-                                <label className='mt-1.5 text-lg'>Sort:</label>
+                                <label className='mt-2 text-lg'>Sort:</label>
                                 <select
                                     id='sort_order'
-                                    className='border rounded-md p-3'
+                                    className='border-2 rounded-md p-3 border-green-900 outline-none text-lg'
                                     onChange={handleChange}
                                     defaultValue={'createAt_desc'}
                                 >
@@ -227,18 +227,18 @@ export default function Search() {
                                     <option value="createAt_asc">Oldest</option>
                                 </select>
                             </div>
-                            <button className='border p-3 bg-slate-700 text-white w-full rounded-md text-lg'>Search</button>
+                            <button className='border p-3 bg-green-900 text-white w-full rounded-md text-lg'>Search</button>
                         </div>
                     </div>
                 </form>
                 <div className='flex-1'>
-                    <h1 className='text-3xl font-semibold text-slate-600 border-b-2 m-7 pb-4'>Listing Results:</h1>
-                    <div className='p-7 flex flex-wrap gap-4'>
+                    <h1 className='text-3xl font-semibold text-green-900 border-b-2 m-7 pb-4'>Listing Results:</h1>
+                    <div className='p-2 sm:p-7 flex flex-wrap gap-4'>
                         {!loading && listings.length === 0 && (
-                            <p className='text-xl text-slate-700'>No listing found!</p>
+                            <p className='text-xl text-green-700'>No listing found!</p>
                         )}
                         {loading && (
-                            <p className='text-xl text-slate-700 text-center'>Loading...</p>
+                            <p className='text-xl text-green-700 text-center'>Loading...</p>
                         )}
                         {!loading && listings.length > 0 && (
                             listings.map((listing) => <ListingItem key={listing._id} listing={listing} />)

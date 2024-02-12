@@ -35,7 +35,7 @@ export default function Contact({ listing }) {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder='Enter your message here...'
-                        className='w-full border p-3 rounded-lg'
+                        className='w-full border-2 p-3 rounded-lg outline-none border-green-900'
                     ></textarea>
                     <Link
                         to={`mailto:${LandLord.email}?subject=${listing.name}&body=${message}`}
